@@ -112,7 +112,7 @@ main {
     overflow: hidden;
     width: 28rem;
     height: 56rem;
-    padding: 2.5rem 3rem;
+    padding: 5rem 3rem;
     border: 1px solid hsl(var(--txt));
     border-radius: 1.5rem;
     display: grid;
@@ -144,6 +144,13 @@ header input {
     }
 }
 
+.current-icon {
+    height: 250px;
+    width: 250px;
+    justify-self: center;
+    align-self: flex-end;
+}
+
 .current-info {
     font-size: 3.75rem;
     line-height: 1.25;
@@ -151,10 +158,11 @@ header input {
 }
 
 .forecast {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
     text-align: center;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 .date {
