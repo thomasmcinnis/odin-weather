@@ -1,0 +1,162 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+@font-face {
+    font-family: 'Lexend-Regular';
+    src: url('./fonts/Lexend-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    /* Colours */
+    --_hue-primary: 350;
+    --_hue-secondary: 260;
+
+    /* Light Mode */
+    --bkg--light: var(--_hue-secondary) 25% 95%;
+    --txt--light: var(--_hue-primary) 40% 5%;
+    --accent--light: var(--_hue-primary) 70% 60%;
+    --muted--light: var(--_hue-secondary) 10% 80%;
+    /* Dark Mode */
+    --bkg--dark: var(--_hue-secondary) 15% 10%;
+    --txt--dark: var(--_hue-primary) 15% 90%;
+    --accent--dark: var(--_hue-primary) 80% 70%;
+    --muted--dark: var(--_hue-secondary) 15% 30%;
+
+    --bkg: var(--bkg--light);
+    --txt: var(--txt--light);
+    --accent: var(--accent--light);
+    --muted: var(--muted--light);
+    color-scheme: light;
+
+    & :focus-visible {
+        outline: solid 1px hsl(var(--accent) / 0.5);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bkg: var(--bkg--dark);
+        --txt: var(--txt--dark);
+        --accent: var(--accent--dark);
+        --muted: var(--muted--dark);
+        color-scheme: dark;
+    }
+}
+
+body {
+    font-family: 'Lexend-Regular';
+    font-size: 0.875rem;
+    color: hsl(var(--txt));
+    background-color: hsl(var(--bkg));
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    position: relative;
+    overflow: hidden;
+    width: 28rem;
+    height: 56rem;
+    padding: 2.5rem 3rem;
+    border: 1px solid hsl(var(--txt));
+    border-radius: 1.5rem;
+    display: grid;
+    grid-template-rows: 1.5fr 2fr 2fr 1.5fr;
+}
+
+header {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2rem 1fr 2rem;
+    gap: 2rem;
+    align-self: self-start;
+}
+
+header button {
+    margin-left: auto;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+header input {
+    text-align: center;
+    background-color: transparent;
+    border: none;
+
+    &:focus::placeholder {
+        color: transparent;
+    }
+}
+
+.current-info {
+    font-size: 3.75rem;
+    line-height: 1.25;
+    text-align: center;
+}
+
+.forecast {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    text-align: center;
+}
+
+.date {
+    font-size: 1.25rem;
+}
