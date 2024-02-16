@@ -3,6 +3,7 @@ import './style.css';
 import { renderCurrent, renderForecast } from './components/render-page';
 import getData from './data/get-data';
 import renderBackground from './components/render-background';
+import renderError from './components/render-error';
 
 let prefersC = true;
 let location = '';
@@ -10,10 +11,14 @@ let currentData = {};
 let forecastData = {};
 
 const input = document.querySelector('input');
-const button = document.querySelector('button');
+const button = document.querySelector('header button');
 
 function updateLocation(e) {
-    getData(e.target.value)
+    const value = e.target.value;
+
+    if (!value) return;
+
+    getData(value)
         .then((response) => {
             location = response.location.name;
             currentData = response.current;
@@ -25,7 +30,7 @@ function updateLocation(e) {
             input.blur();
         })
         .catch((error) => {
-            // render the error message UI
+            renderError(value);
             console.error(error);
         });
 }

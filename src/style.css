@@ -58,7 +58,8 @@ h6 {
     font-style: normal;
 }
 
-:root {
+:root,
+::backdrop {
     /* Colours */
     --_hue-primary: 350;
     --_hue-secondary: 260;
@@ -86,7 +87,8 @@ h6 {
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root,
+    ::backdrop {
         --bkg: var(--bkg--dark);
         --txt: var(--txt--dark);
         --accent: var(--accent--dark);
@@ -142,6 +144,25 @@ header input {
     &:focus::placeholder {
         color: transparent;
     }
+}
+
+dialog {
+    position: fixed;
+    inset: 0;
+    height: fit-content;
+    margin: auto;
+    gap: 1rem;
+    max-width: 30ch;
+    text-align: center;
+    border-radius: 0.5rem;
+}
+
+dialog button {
+    margin-top: 1rem;
+}
+
+dialog::backdrop {
+    background-color: hsl(var(--bkg) / 0.5);
 }
 
 .current-icon {

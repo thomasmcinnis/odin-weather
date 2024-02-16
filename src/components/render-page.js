@@ -42,9 +42,7 @@ export function renderForecast(forecastData, prefersC) {
         const dispDate = `${month}. ${day}`;
 
         const max = prefersC ? entry.day.maxtemp_c : entry.day.maxtemp_f;
-
         const min = prefersC ? entry.day.mintemp_c : entry.day.mintemp_f;
-
         const dispTemp = `${formatTemp(max, '')}/${formatTemp(min, '')}`;
 
         // Push to the DOM
