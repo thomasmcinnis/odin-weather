@@ -2,6 +2,7 @@ import './style.css';
 
 import { renderCurrent, renderForecast } from './components/render-page';
 import getData from './data/get-data';
+import renderBackground from './components/render-background';
 
 let prefersC = true;
 let location = '';
@@ -34,6 +35,7 @@ function toggleUnit() {
     button.textContent = !prefersC ? 'ºF' : 'ºC';
     renderCurrent(location, currentData, prefersC);
     renderForecast(forecastData, prefersC);
+    renderBackground(prefersC);
 }
 
 // Set up first page render on load

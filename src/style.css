@@ -145,8 +145,7 @@ header input {
 }
 
 .current-icon {
-    height: 250px;
-    width: 250px;
+    height: 100px;
     justify-self: center;
     align-self: flex-end;
 }
@@ -167,4 +166,12 @@ header input {
 
 .date {
     font-size: 1.25rem;
+}
+
+.freedom {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -10;
+    opacity: 50%;
 }
